@@ -34,6 +34,37 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 .btn-ghost:hover{background:rgba(255,255,255,.1)}
 .hero-ctas{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
 
+/* ====== 카카오채널 버튼 ====== */
+.btn-kakao{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#FEE500;color:#3A1D1D;
+  padding:12px 22px;font-size:14.5px;font-weight:700;
+  border-radius:8px;border:none;cursor:pointer;
+  font-family:'Noto Sans KR',sans-serif;
+  box-shadow:0 4px 14px rgba(254,229,0,.4);
+  transition:transform .2s,box-shadow .2s;
+  text-decoration:none;
+}
+.btn-kakao:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(254,229,0,.55);}
+.kakao-badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:#3A1D1D;color:#FEE500;
+  width:22px;height:22px;border-radius:50%;
+  font-size:10px;font-weight:900;flex-shrink:0;letter-spacing:-.5px;
+}
+/* ====== 플로팅 카카오채널 버튼 ====== */
+.kakao-float{
+  position:fixed;bottom:28px;right:24px;z-index:1000;
+  display:flex;align-items:center;gap:8px;
+  background:#FEE500;color:#3A1D1D;
+  border:none;border-radius:50px;padding:12px 20px;
+  font-size:14px;font-weight:700;font-family:'Noto Sans KR',sans-serif;
+  cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.25);
+  transition:transform .2s,box-shadow .2s;
+  text-decoration:none;
+}
+.kakao-float:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.3);}
+
 .wrap{max-width:760px;margin:0 auto;padding:0 20px}
 .section{padding:44px 0}
 .section+.section{border-top:1px solid var(--border)}
@@ -110,6 +141,7 @@ tbody tr:hover{background:#F6F8FA}
   .hero-ctas{flex-direction:column;align-items:center}
   .btn-ghost{margin-left:0}
   th,td{padding:9px 10px;font-size:13px}
+  .kakao-float{bottom:20px;right:16px;padding:10px 16px;font-size:13px;}
 }
 </style>
 
@@ -121,7 +153,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-TC7Z5NPC');</script>
 <!-- End Google Tag Manager -->
 
-  
 <!-- 네이버 공통 스크립트 (WCS) -->
 <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
 <script type="text/javascript">
@@ -151,8 +182,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="tel:052-267-3172" class="btn btn-primary" onclick="naverConversionCall()">052-267-3172 무료 상담</a>
     <a href="https://www.jhj.education/" class="btn btn-ghost" target="_blank">교육과정 보기</a>
   </div>
-  <div>
-    <button onclick="openConsultPopup()" class="btn-primary" style="cursor:pointer; border:none;">상담 문의</button>
+  <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:10px;">
+    <button onclick="openConsultPopup()" class="btn-primary" style="cursor:pointer;border:none;font-family:'Noto Sans KR',sans-serif;border-radius:8px;font-weight:700;padding:13px 28px;font-size:15px;">📋 상담 문의</button>
+    <a href="https://pf.kakao.com/_bnxnAX" target="_blank" class="btn-kakao">
+      <span class="kakao-badge">Ch</span>
+      카카오채널 추가
+    </a>
   </div>
 </header>
 
@@ -261,7 +296,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- ══════ ③ 경쟁사 비교표 (MOFU) ══════ -->
-<section class="section" id="compare">
+<section class="section" id="compare2">
   <h2>울산 산업안전 교육기관 비교 — 지행재 vs 경쟁사</h2>
   <div class="tw">
     <table>
@@ -425,6 +460,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </main>
 
+<!-- ★ 플로팅 카카오채널 버튼 -->
+<a href="https://pf.kakao.com/_bnxnAX" target="_blank" class="kakao-float" title="카카오채널 추가">
+  <span class="kakao-badge">Ch</span>
+  카카오채널 추가
+</a>
+
 <script>
 document.querySelectorAll('.faq-q').forEach(q=>{
   q.addEventListener('click',()=>{
@@ -438,60 +479,39 @@ document.querySelectorAll('.faq-q').forEach(q=>{
 <!-- ===== 상담문의 팝업 오버레이 (구글폼 연동) ===== -->
 <div id="consult-overlay" style="display:none; position:fixed; inset:0; background:rgba(10,25,47,0.75); z-index:9999; align-items:center; justify-content:center;">
   <div style="background:#fff; border-radius:12px; width:92%; max-width:520px; padding:28px 24px 20px; box-shadow:0 20px 60px rgba(0,0,0,0.35); position:relative; font-family:'Noto Sans KR',sans-serif;">
-
-    <!-- 닫기 버튼 -->
     <button onclick="closeConsultPopup()" aria-label="닫기"
       style="position:absolute; top:14px; right:16px; background:none; border:none; font-size:22px; color:#667; cursor:pointer; line-height:1;">&#10005;</button>
-
-    <!-- 헤더 -->
     <div style="margin-bottom:16px;">
       <p style="margin:0 0 4px; font-size:12px; font-weight:700; letter-spacing:1.5px; color:#E8530E; text-transform:uppercase;">지행재직업전문학교</p>
       <h2 style="margin:0; font-size:20px; font-weight:800; color:#102A43; line-height:1.3;">무료 수강 상담 문의</h2>
       <p style="margin:6px 0 0; font-size:13px; color:#555;">아래 양식을 작성하시면 빠르게 연락드리겠습니다.</p>
     </div>
-
-    <!-- 구글폼 iframe 삽입 -->
     <iframe
       src="https://docs.google.com/forms/d/e/1FAIpQLScvNmfZzWD6zz5dwgGpkz_KkpsVwTQlCqHSU7wEJ49Nw3VQpA/viewform?embedded=true"
-      width="100%"
-      height="480"
-      frameborder="0"
-      marginheight="0"
-      marginwidth="0"
-      style="border-radius:8px; display:block;"
-    >로딩 중…</iframe>
-
+      width="100%" height="480" frameborder="0" marginheight="0" marginwidth="0"
+      style="border-radius:8px; display:block;">로딩 중…</iframe>
   </div>
 </div>
 
-<!-- ===== 팝업 제어 스크립트 ===== -->
 <script>
   function openConsultPopup() {
     var overlay = document.getElementById('consult-overlay');
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
   }
-
   function closeConsultPopup() {
     var overlay = document.getElementById('consult-overlay');
     overlay.style.display = 'none';
     document.body.style.overflow = '';
   }
-
-  // 페이지 로드 후 1초 뒤 자동으로 팝업 열기
-  window.addEventListener('load', function() {
-    setTimeout(openConsultPopup, 1000);
-  });
-
+  window.addEventListener('load', function() { setTimeout(openConsultPopup, 1000); });
   document.getElementById('consult-overlay').addEventListener('click', function(e) {
     if (e.target === this) closeConsultPopup();
   });
-
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeConsultPopup();
   });
 </script>
-<!-- ===== 상담문의 팝업 끝 ===== -->
 
 <script>
 function naverConversionCall(){
