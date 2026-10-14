@@ -136,6 +136,42 @@ tbody tr:hover{background:#F6F8FA}
 
 .footer{text-align:center;padding:28px 20px;font-size:12.5px;color:var(--sub);border-top:1px solid var(--border)}
 
+/* ====== 개강 일정 공지 배너 ====== */
+.urgent-banner{background:linear-gradient(135deg,#0B1F32 0%,var(--navy) 45%,var(--blue) 100%);padding:22px 16px 28px;text-align:center;position:relative;overflow:hidden}
+.urgent-banner::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 10px,transparent 10px 20px);pointer-events:none}
+.urgent-inner{max-width:680px;margin:0 auto;position:relative}
+.urgent-top{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.urgent-badge{display:inline-flex;align-items:center;gap:6px;background:var(--red);color:#fff;font-size:13px;font-weight:900;padding:7px 16px;border-radius:20px;letter-spacing:.3px;animation:urgentPulse 1.6s infinite;box-shadow:0 0 0 0 rgba(204,51,51,.6)}
+.urgent-count{display:inline-block;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:20px}
+.urgent-title{font-family:'Noto Serif KR',serif;color:#fff;font-size:clamp(19px,4.4vw,27px);font-weight:700;line-height:1.45;margin-bottom:4px;text-shadow:0 2px 10px rgba(0,0,0,.15)}
+.urgent-title em{font-style:normal;color:#FFE9A8;border-bottom:2px solid rgba(255,255,255,.5)}
+.urgent-sub{color:#FFF3DC;font-size:13.5px;font-weight:600;margin-bottom:18px}
+.urgent-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.urgent-item{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:10px;padding:11px 8px;backdrop-filter:blur(2px)}
+.ui-label{display:block;font-size:11px;color:#FFE9A8;font-weight:700;margin-bottom:5px;letter-spacing:.2px}
+.ui-value{display:block;font-size:13px;color:#fff;font-weight:700;line-height:1.4}
+.urgent-bar-wrap{margin-bottom:18px}
+.urgent-bar{background:rgba(255,255,255,.25);border-radius:20px;height:11px;overflow:hidden;margin-bottom:7px;box-shadow:inset 0 1px 3px rgba(0,0,0,.2)}
+.urgent-bar-fill{background:linear-gradient(90deg,#FFE9A8,#fff);height:100%;border-radius:20px;width:0;transition:width 1.1s ease-out}
+.urgent-bar-text{font-size:12.5px;color:#fff;font-weight:700}
+.urgent-bar-text b{color:#FFE9A8}
+.urgent-cta{background:#fff;color:var(--accent);padding:14px 32px;font-size:15.5px;box-shadow:0 6px 22px rgba(0,0,0,.28)}
+.urgent-cta:hover{box-shadow:0 10px 30px rgba(0,0,0,.38)}
+.course-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0 20px;text-align:left}
+.course-card{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.3);border-radius:12px;padding:16px 16px 14px;backdrop-filter:blur(2px)}
+.cc-head{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.cc-badge{background:#fff;color:var(--accent);font-size:11.5px;font-weight:900;padding:3px 10px;border-radius:12px;flex-shrink:0}
+.cc-name{color:#fff;font-size:14px;font-weight:700;line-height:1.35}
+.course-card .urgent-grid{grid-template-columns:1fr;gap:8px;margin-bottom:14px}
+.course-card .urgent-item{text-align:left;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 10px}
+.course-card .ui-label{margin-bottom:0;flex-shrink:0}
+.course-card .ui-value{text-align:right}
+@keyframes urgentPulse{0%,100%{box-shadow:0 0 0 0 rgba(204,51,51,.55)}50%{box-shadow:0 0 0 9px rgba(204,51,51,0)}}
+@media(max-width:640px){
+  .urgent-banner{padding:18px 14px 22px}
+  .course-cards{grid-template-columns:1fr}
+}
+
 @media(max-width:600px){
   .hero{padding:52px 16px 44px}
   .hero-stats{gap:16px}
@@ -168,6 +204,64 @@ if(window.wcs){wcs.inflow();wcs_do();}
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC7Z5NPC"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+
+<!-- ══════ 개강 일정 공지 배너 ══════ -->
+<div class="urgent-banner">
+  <div class="urgent-inner">
+    <div class="urgent-top">
+      <span class="urgent-badge">🔥 11월 개강</span>
+      <span class="urgent-count">국비지원 2개 과정 동시 모집</span>
+    </div>
+    <h2 class="urgent-title">국비지원(내일배움카드) 소방설비기사·산업기사<br><em>전기·기계 필기 개강</em></h2>
+    <p class="urgent-sub">전기 야간반 · 기계 주말반 — 2개 과정 중 선택 수강</p>
+
+    <div class="course-cards">
+      <div class="course-card">
+        <div class="cc-head">
+          <span class="cc-badge">전기 · 야간</span>
+          <span class="cc-name">소방설비(산업)기사(전기)-필기 B</span>
+        </div>
+        <div class="urgent-grid">
+          <div class="urgent-item"><span class="ui-label">훈련기간</span><span class="ui-value">'26.11.24~'27.01.05</span></div>
+          <div class="urgent-item"><span class="ui-label">수업요일</span><span class="ui-value">주5일 (월~금)</span></div>
+          <div class="urgent-item"><span class="ui-label">훈련시간</span><span class="ui-value">19:00~22:00</span></div>
+          <div class="urgent-item"><span class="ui-label">총 시간</span><span class="ui-value">1일 3시간·80시간</span></div>
+        </div>
+        <div class="urgent-bar-wrap">
+          <div class="urgent-bar"><div class="urgent-bar-fill" data-w="10"></div></div>
+          <span class="urgent-bar-text">현재 <b>2명</b> 접수 · 20명 중 <b>17자리</b> 남음</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="cc-head">
+          <span class="cc-badge">기계 · 주말</span>
+          <span class="cc-name">소방설비(산업)기사(기계)-필기 B</span>
+        </div>
+        <div class="urgent-grid">
+          <div class="urgent-item"><span class="ui-label">훈련기간</span><span class="ui-value">'26.11.28~'27.01.10</span></div>
+          <div class="urgent-item"><span class="ui-label">수업요일</span><span class="ui-value">주말반 (토·일)</span></div>
+          <div class="urgent-item"><span class="ui-label">훈련시간</span><span class="ui-value">09:00~16:00</span></div>
+          <div class="urgent-item"><span class="ui-label">총 시간</span><span class="ui-value">1일 6시간·80시간</span></div>
+        </div>
+        <div class="urgent-bar-wrap">
+          <div class="urgent-bar"><div class="urgent-bar-fill" data-w="10"></div></div>
+          <span class="urgent-bar-text">현재 <b>2명</b> 접수 · 20명 중 <b>17자리</b> 남음</span>
+        </div>
+      </div>
+    </div>
+
+    <a href="tel:052-267-3172" class="btn urgent-cta" onclick="naverConversionCall()">지금 전화로 자리 확인하기 052-267-3172</a>
+  </div>
+</div>
+<script>
+window.addEventListener('load',function(){
+  document.querySelectorAll('.urgent-bar-fill').forEach(function(el){
+    var w = el.getAttribute('data-w') || 0;
+    requestAnimationFrame(function(){ el.style.width = w + '%'; });
+  });
+});
+</script>
 
 <!-- ══════ HERO ══════ -->
 <header class="hero">
